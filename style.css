@@ -88,7 +88,7 @@ img{
 
 .game-over-text {
   font-family: 'VT323';
-  font-size:8em;
+  font-size:10em;
   text-align:center;
   animation: example 1s infinite;
 }
@@ -101,6 +101,36 @@ img{
   70%{color:lime; text-shadow:none; transform: translate(0,0)}
   80%{color:lime; text-shadow:0 0 20px green; transform: translate(-2px,1px)}
   100%{color:lime; text-shadow:none;}
+}
+
+#mission-successful {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background: #046a75;
+}
+
+#title {
+  transform: rotate(-8deg);
+  text-align: center;
+  margin: 100px 0 0 0;
+  font-size: 5vw;
+  padding: 0px;
+  color: Black;
+  letter-spacing: -.1rem;
+  font-family: '8BITWONDERNominal', Georgia;
+     text-shadow: 
+      5px -5px 0 #3d5ddb,
+      1px -8px 0 #f2fcfb,
+      0px -1px 0 #556878,
+      -1px -2px 0 #556878, 
+      -4px -4px 0 #556878, 
+      -6px -6px 0 #556878, 
+      -8px -8px 0 #556878, 
+      -10px -10px 0 #556878, 
+      -12px -12px 0 #556878, 
+      -14px -14px 0 #556878,       
+      -30px -15px 30px rgba(0, 240, 255, 0.7); 
 }
 
 .hide{
