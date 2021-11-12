@@ -1,4 +1,5 @@
-/* ---- reset ---- */
+@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');/* ---- reset ---- */
+
 body {
   margin: 0;
   font: normal 75% Arial, Helvetica, sans-serif;
@@ -30,6 +31,10 @@ canvas {
   position: relative;
 }
 
+img{
+  height:180px;
+  width:180px;
+}
 .rock{
   position: relative;
 }
@@ -72,4 +77,32 @@ canvas {
     bottom:300px;
     transform: rotate(360deg);
   }
+}
+
+#game-over{
+  height:100%;
+  width:100%;
+  position:absolute;
+  background-color:black;
+}
+
+.game-over-text {
+  font-family: 'VT323';
+  font-size:8em;
+  text-align:center;
+  animation: example 1s infinite;
+}
+
+@keyframes example {
+  0%{color:lime; text-shadow:0 0 20px green}
+  25%{color:green; text-shadow:2px 2px 2px lime; transform: translate(-2px,1px)}
+  40%{color:lime; text-shadow:none; transform: translate(0,0)}
+  50%{color:green; text-shadow:5px 5px 2px blue, -5px -5px 2px red; transform: translate(0px,5px)}
+  70%{color:lime; text-shadow:none; transform: translate(0,0)}
+  80%{color:lime; text-shadow:0 0 20px green; transform: translate(-2px,1px)}
+  100%{color:lime; text-shadow:none;}
+}
+
+.hide{
+  display: none;
 }

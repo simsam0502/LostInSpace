@@ -58,13 +58,23 @@ particlesJS("particles-js", {
 });
 
 // Game Logic
-
+const gameAudio = new Audio('audios/game.mp3')
 const rocket = document.getElementById("rocket");
+const rocks = document.getElementsByClassName("rock");
+const moon = document.getElementById("moon");
+const moonCoordinates = moon.getBoundingClientRect();
+const gameOver = document.getElementById("game-over");
+var gameAudioPlaying = false;
+const collision = new Audio('audios/collision.mp4');
 var x=0,y=0;
 
 // Rocket Motion
 
 window.addEventListener("keydown",(event)=>{
+  if(!gameAudioPlaying){
+    gameAudioPlaying = true;
+    gameAudio.play();
+  }
   const keyPressed = event.key;
   switch(keyPressed){
     case "ArrowUp": y+=25;
@@ -79,7 +89,22 @@ window.addEventListener("keydown",(event)=>{
   rocket.style.bottom=y+'px';
 });
 
-// Collision Detection
+// Collision/Game-Over/Mission Successful Detection
 
-
-
+setInterval(()=>
+{ 
+  const rocketCoordinates = rocket.getBoundingClientRect();
+  for(var i=0;i<3;i++){
+    const rockCoordinates = rocks[i].getBoundingClientRect();
+    if(Math.abs(rocketCoordinates.x-rockCoordinates.x)<160&&Math.abs(rocketCoordinates.y-rockCoordinates.y)<160){
+      // collision
+      gameAudio.pause(); 
+      collision.play();
+      gameOver.classList.remove("hide");
+    }
+  }
+  if(moonCoordinates.x-rocketCoordinates.x<150&&Math.abs(moonCoordinates.y-rocketCoordinates.y)<=120){
+    //mission-successful
+    alert("You won");
+  }
+}, 1000);
