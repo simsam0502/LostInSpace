@@ -65,8 +65,9 @@ const moon = document.getElementById("moon");
 const moonCoordinates = moon.getBoundingClientRect();
 const gameOver = document.getElementById("game-over");
 var gameAudioPlaying = false;
-const collision = new Audio('audios/collision.mp4');
+const collisionAudio = new Audio('audios/collision.mp4');
 const missionSuccessful = document.getElementById("mission-successful");
+const missionSuccessfulAudio = new Audio('audios/missionSuccessful.mp4');
 var x=0,y=0;
 
 // Rocket Motion
@@ -100,13 +101,14 @@ setInterval(()=>
     if(Math.abs(rocketCoordinates.x-rockCoordinates.x)<160&&Math.abs(rocketCoordinates.y-rockCoordinates.y)<160){
       // collision
       gameAudio.pause(); 
-      collision.play();
+      collisionAudio.play();
       gameOver.classList.remove("hide");
     }
   }
   if(moonCoordinates.x-rocketCoordinates.x<150&&Math.abs(moonCoordinates.y-rocketCoordinates.y)<=120){
     //mission-successful
     gameAudio.pause();
+    missionSuccessfulAudio.play();
     missionSuccessful.classList.remove("hide");
   }
 }, 1000);
