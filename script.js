@@ -64,19 +64,17 @@ const rocks = document.getElementsByClassName("rock");
 const moon = document.getElementById("moon");
 const moonCoordinates = moon.getBoundingClientRect();
 const gameOver = document.getElementById("game-over");
-var gameAudioPlaying = false;
 const collisionAudio = new Audio('audios/collision.mp4');
 const missionSuccessful = document.getElementById("mission-successful");
 const missionSuccessfulAudio = new Audio('audios/missionSuccessful.mp4');
+const retry = document.getElementById("retry");
+const instructions = document.getElementById("instructions");
+const cross = document.getElementById("cross");
 var x=0,y=0;
 
 // Rocket Motion
 
 window.addEventListener("keydown",(event)=>{
-  if(!gameAudioPlaying){
-    gameAudioPlaying = true;
-    gameAudio.play();
-  }
   const keyPressed = event.key;
   switch(keyPressed){
     case "ArrowUp": y+=25;
@@ -99,7 +97,7 @@ setInterval(()=>
   for(var i=0;i<3;i++){
     const rockCoordinates = rocks[i].getBoundingClientRect();
     if(Math.abs(rocketCoordinates.x-rockCoordinates.x)<160&&Math.abs(rocketCoordinates.y-rockCoordinates.y)<160){
-      // collision
+      // collision/game-over
       gameAudio.pause(); 
       collisionAudio.play();
       gameOver.classList.remove("hide");
@@ -112,3 +110,16 @@ setInterval(()=>
     missionSuccessful.classList.remove("hide");
   }
 }, 1000);
+
+// Retry-refresh
+
+retry.addEventListener("click",()=>{
+  location.reload();
+})
+
+// Instructions Cross
+
+cross.addEventListener("click",()=>{
+  gameAudio.play();
+  instructions.classList.add("hide");
+})
