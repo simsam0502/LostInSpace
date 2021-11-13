@@ -17,16 +17,43 @@ canvas {
   background-color: #232741;
 } 
 
-.modal {
-  display: none;
+#title {
+  position: absolute;
+  left:10px;
+  bottom: 0;
+  text-align: center;
+  /* margin: 100px 0 0 0; */
+  font-size: 2vw;
+  /* padding: 0px; */
+  color: transparent;
+  letter-spacing: -.1rem;
+ 
+  font-family: '8BITWONDERNominal', sans-serif;
+     text-shadow: 
+      5px -5px 0 #E23769,
+      1px -8px 0 #E9CD55,
+      0px -1px 0 #072a4d,
+      -1px -2px 0 #072a4d, 
+      -4px -4px 0 #072a4d, 
+      -6px -6px 0 #072a4d, 
+      -8px -8px 0 #072a4d, 
+      -10px -10px 0 #072a4d, 
+      -12px -12px 0 #072a4d, 
+      -14px -14px 0 #072a4d, 
+      -16px -16px 0 #072a4d, 
+      -18px -18px 0 #072a4d, 
+      -20px -20px 0 #70B3EB, 
+      -22px -22px 0 #70B3EB, 
+      -24px -24px 0 #70B3EB, 
+      -26px -26px 0 #70B3EB, 
+      -28px -28px 0 #70B3EB, 
+      -30px -15px 30px rgba(0, 0, 0, 0.6); 
 }
 
-.modal.is-open {
-  display: block;
-}
 
 #game{
   position: absolute;
+  bottom: 0;
   width: 100%;
   height: 100%;
   display: flex;
@@ -123,11 +150,11 @@ img{
   background: #046a75;
 }
 
-#title {
+.mission-successful-text {
   transform: rotate(0 deg);
   text-align: center;
-  margin: 100px 0 0 0;
-  font-size: 5vw;
+  margin: 250px 0 0 0;
+  font-size: 4vw;
   padding: 0px;
   color: Black;
   letter-spacing: -.1rem;
